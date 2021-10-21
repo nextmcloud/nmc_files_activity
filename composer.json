@@ -1,0 +1,15 @@
+{
+    "name": "Files Activity",
+    "description": "Custom Files Activity",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "sangramsinh desai"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}
