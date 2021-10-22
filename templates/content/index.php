@@ -22,13 +22,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-script('filesactivity', [
+script('activity', [
 	'richObjectStringParser',
 	'templates',
 	'script',
 	'feedSettings',
 ]);
-style('filesactivity', 'style');
+style('activity', 'style');
 ?>
 <div id="container" data-activity-filter="all" data-avatars-enabled="yes">
   <div id="loading_activities" class="icon-loading"></div>
