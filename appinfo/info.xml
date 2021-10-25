@@ -1,23 +1,17 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>filesactivity</id>
-    <name>Files Activity</name>
+    <id>nmc_files_activity</id>
+    <name>NMC Files Activity</name>
     <summary>Custom Files Activity</summary>
     <description><![CDATA[Custom Files Activity]]></description>
     <version>0.0.1</version>
     <licence>agpl</licence>
     <author mail="sangramsinh.desai@t-systems.com" >sangramsinh desai</author>
-    <namespace>FilesActivity</namespace>
+    <namespace>NmcfilesActivity</namespace>
     <category>tools</category>
-    <bugs>https://github.com/nextcloud/filesactivity/issues</bugs>
+    <bugs>https://github.com/nextcloud/nmc_files_activity/issues</bugs>
     <dependencies>
-        <nextcloud min-version="15" max-version="15"/>
+        <nextcloud min-version="15" max-version="21"/>
     </dependencies>
-    <navigations>
-        <navigation>
-            <name>Files Activity</name>
-            <route>filesactivity.page.index</route>
-        </navigation>
-    </navigations>
 </info>

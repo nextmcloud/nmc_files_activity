@@ -24,7 +24,7 @@
  *
  */
 
-namespace OCA\Filesactivity\AppInfo;
+namespace OCA\NmcfilesActivity\AppInfo;
 
 use OCA\DAV\Connector\Sabre\Principal;
 use OCP\App\IAppManager;
@@ -37,7 +37,7 @@ use OCP\IServerContainer;
 
 class Application extends App implements IBootstrap {
 	public function __construct(array $urlParams = []) {
-		parent::__construct('filesactivity', $urlParams);
+		parent::__construct('nmc_files_activity', $urlParams);
 	}
 
 	public function register(IRegistrationContext $context): void {
@@ -53,8 +53,8 @@ class Application extends App implements IBootstrap {
 		\OCA\Files\App::getNavigationManager()->add(function () {
 			$l = \OC::$server->getL10N('activity');
 			return [
-				'id' => 'filesactivity',
-				'appname' => 'filesactivity',
+				'id' => 'nmc_files_activity',
+				'appname' => 'nmc_files_activity',
 				'script' => 'list.php',
 				'name' => $l->t('Activities')
 			];

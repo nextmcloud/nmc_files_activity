@@ -32,9 +32,9 @@ $userSession = \OC::$server->getUserSession();
 $showgridview = $config->getUserValue($userSession->getUser()->getUID(), 'files', 'show_grid', false);
 $isIE = \OCP\Util::isIE();
 
-$tmpl = new OCP\Template('filesactivity', 'index', '');
+$tmpl = new OCP\Template('nmc_files_activity', 'index', '');
 
 // gridview not available for ie
 $tmpl->assign('showgridview', $showgridview && !$isIE);
-OCP\Util::addScript('filesactivity', 'filesactivity');
+OCP\Util::addScript('nmc_files_activity', 'nmc_files_activity');
 $tmpl->printPage();
