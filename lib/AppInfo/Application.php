@@ -51,12 +51,12 @@ class Application extends App implements IBootstrap {
 
 	public function boot(IBootContext $context): void {
 		\OCA\Files\App::getNavigationManager()->add(function () {
-			$l = \OC::$server->getL10N('filesactivity');
+			$l = \OC::$server->getL10N('activity');
 			return [
 				'id' => 'filesactivity',
 				'appname' => 'filesactivity',
 				'script' => 'list.php',
-				'name' => $l->t('Files activities')
+				'name' => $l->t('Activities')
 			];
 		});
 
