@@ -29,6 +29,7 @@ script('activity', [
 	'feedSettings',
 ]);
 style('activity', 'style');
+style('nmc_files_activity', 'style');
 ?>
 <div id="container" data-activity-filter="all" data-avatars-enabled="yes">
   <div id="loading_activities" class="icon-loading"></div>

@@ -1,3 +1,3 @@
-#hello {
-	color: red;
+#appmenu li[data-id='activity'] {
+    display: none;
 }
