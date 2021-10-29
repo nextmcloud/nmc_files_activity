@@ -10,12 +10,8 @@
 return [
     'routes' => [
 	   ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
-	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   [
-		'name' => 'Preview#getPreview',
-		'url' => '/preview',
-		'verb' => 'GET',
-	],
+	   ['name' => 'Page#index', 'url' => '/', 'verb' => 'GET'],
+	   ['name' => 'Page#deleteActivitiesCustom', 'url' => '/deleteActivitiesCustom', 'verb' => 'DELETE']
     ]
 ];
 

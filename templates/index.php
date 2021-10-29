@@ -22,18 +22,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
+use OCA\Activity\BackgroundJob\ExpireActivities;
+
 script('activity', [
 	'richObjectStringParser',
 	'templates',
 	'script',
 	'feedSettings',
 ]);
+
+script('nmc_files_activity', 'script');
 style('activity', 'style');
-style('nmc_files_activity', 'style');
 ?>
-<div id="container" data-activity-filter="all" data-avatars-enabled="yes">
-  <div id="loading_activities" class="icon-loading"></div>
+<div style="margin-top:30px;">
+	<a class="del-files-activity"><button type="button" class="btn btn-default btn-style">Delete activities</button></a>
 </div>
-<div id="no_more_activities" class="hidden">
-<?php //  p($l->t('No more events to load')) ?>
+
+<div id="app-content">
+	<div id="emptycontentCustom" class="hidden">
+		<div class="icon-activity"></div>
+		<h2><?php p($l->t('No activity yet')); ?></h2>
+		<p><?php p($l->t('This stream will show events like additions, changes & shares')); ?></p>
+	</div>
+
+	<div id="container" data-activity-filter="all" data-avatars-enabled="yes">	</div>
+
+	<div id="loading_activities" class="icon-loading"></div>
+
+	<div id="no_more_activities" class="hidden">
+		<?php p($l->t('No more events to load')) ?>
+	</div>
 </div>
