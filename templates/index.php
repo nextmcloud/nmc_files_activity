@@ -28,14 +28,12 @@ use OCA\Activity\BackgroundJob\ExpireActivities;
 script('activity', [
 	'richObjectStringParser',
 	'templates',
-	'script',
 	'feedSettings',
 ]);
 
-script('nmc_files_activity', 'script');
-style('activity', 'style');
+
 ?>
-<div style="margin-top:30px;">
+<div class="del-files-activity-div" class="hidden">
 	<a class="del-files-activity"><button type="button" class="btn btn-default btn-style">Delete activities</button></a>
 </div>
 
@@ -54,3 +52,9 @@ style('activity', 'style');
 		<?php p($l->t('No more events to load')) ?>
 	</div>
 </div>
+
+<?php
+	script('nmc_files_activity', 'script');
+	style('activity', 'style');
+	style('nmc_files_activity', 'style');
+?>
