@@ -56,7 +56,8 @@ class Application extends App implements IBootstrap {
 				'id' => 'nmc_files_activity',
 				'appname' => 'nmc_files_activity',
 				'script' => 'list.php',
-				'name' => $l->t('Activities')
+				'name' => $l->t('Activities'),
+				'href' => '/index.php/apps/activity/?filter=all'
 			];
 		});
 

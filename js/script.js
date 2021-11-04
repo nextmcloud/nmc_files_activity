@@ -2,7 +2,6 @@
 	var nmcFilesActvityAction = (function () {
 		var delActvities = function() {
 			$('.del-files-activity').click(function(){
-				alert("In del-files-activity");
 				$.ajax({
 					url: OC.generateUrl('/apps/nmc_files_activity/deleteActivitiesCustom'),
 					type: 'DELETE',
@@ -61,11 +60,15 @@ $(function(){
 		},
 
 		setFilter: function (filter) {
+
+			/*
 			if (filter === this.filter) {
+				alert('return');
 				return;
 			}
+			*/
 
-			this.$navigation.find('a[data-navigation=' + this.filter + ']').parent().removeClass('active');
+			// this.$navigation.find('a[data-navigation=' + this.filter + ']').parent().removeClass('active');
 			OCA.Activity.InfinitScrolling.firstKnownId = 0;
 			OCA.Activity.InfinitScrolling.lastGivenId = 0;
 
@@ -80,7 +83,7 @@ $(function(){
 			$('#loading_activities').removeClass('hidden');
 			OCA.Activity.InfinitScrolling.ignoreScroll = 0;
 
-			this.$navigation.find('a[data-navigation=' + filter + ']').parent().addClass('active');
+			// this.$navigation.find('a[data-navigation=' + filter + ']').parent().addClass('active');
 
 			OCA.Activity.InfinitScrolling.prefill();
 		}
@@ -339,13 +342,11 @@ $(function(){
 	OCA.Activity.Filter.setFilter(OCA.Activity.InfinitScrolling.$container.attr('data-activity-filter'));
 	OCA.Activity.InfinitScrolling.$content.on('scroll', _.bind(OCA.Activity.InfinitScrolling.onScroll, OCA.Activity.InfinitScrolling));
 
-	OCA.Activity.Filter.$navigation.find('a[data-navigation]').on('click', function (event) {
-		var filter = $(this).attr('data-navigation');
-		if (filter !== OCA.Activity.Filter.filter) {
-			OC.Util.History.pushState({
-				filter: filter
-			});
-		}
+	OCA.Activity.Filter.$navigation.find('.nav-nmc_files_activity').on('click', function (event) {
+		var filter = 'all';
+		OC.Util.History.pushState({
+			filter: filter
+		});
 		OCA.Activity.Filter.setFilter(filter);
 		event.preventDefault();
 	});
