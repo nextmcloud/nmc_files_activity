@@ -46,6 +46,7 @@ OC.L10N.register(
     "Open file" : "Open file",
     "This application enables users to view actions related to their files in Nextcloud." : "This application enables users to view actions related to their files in Nextcloud.",
 	"Activities" : "Activities",
-	"Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities."	: "Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities."
+	"Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities."	: "Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities.",
+	"Delete all activities" : "Alle activiteiten verwijderen"
 },
 "nplurals=2; plural=(n != 1);");

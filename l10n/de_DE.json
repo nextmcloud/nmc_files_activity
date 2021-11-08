@@ -59,6 +59,7 @@
     "Open file" : "Datei öffnen",
     "This application enables users to view actions related to their files in Nextcloud." : "Diese Anwendung erlaubt es dem Benutzer, Aktivitäten zu dessen Dateien in Nextcloud zu verfolgen.",
 	"Activities" : "Activiteiten",
-	"Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities."	: "Meldingen zijn alleen voor u zichtbaar en worden gewoon veilig versleuteld in uw MagentaCloud opgeslagen als uw gegevens. U kunt nog steeds al uw activiteiten verwijderen."
+	"Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities."	: "Meldingen zijn alleen voor u zichtbaar en worden gewoon veilig versleuteld in uw MagentaCloud opgeslagen als uw gegevens. U kunt nog steeds al uw activiteiten verwijderen.",
+	"Delete all activities" : "Delete all activities"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
