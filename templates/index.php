@@ -31,13 +31,19 @@ script('activity', [
 	'feedSettings',
 ]);
 
-
 ?>
-<div class="del-files-activity-div" class="hidden">
-	<a class="del-files-activity"><button type="button" class="btn btn-default btn-style">Delete activities</button></a>
-</div>
 
 <div id="app-content">
+	<div>
+		<?php p($l->t('Activities')) ?>
+	</div>
+	<div>
+		<?php p($l->t('Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities.')) ?>
+	</div>
+	<div class="del-files-activity-div" class="hidden">
+		<a class="del-files-activity"><button type="button" class="btn btn-default btn-style">Delete activities</button></a>
+	</div>
+
 	<div id="emptycontentCustom" class="hidden">
 		<div class="icon-activity"></div>
 		<h2><?php p($l->t('No activity yet')); ?></h2>
