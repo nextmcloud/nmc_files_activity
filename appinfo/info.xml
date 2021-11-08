@@ -12,6 +12,6 @@
     <category>tools</category>
     <bugs>https://github.com/nextcloud/nmc_files_activity/issues</bugs>
     <dependencies>
-        <nextcloud min-version="15" max-version="21"/>
+        <nextcloud min-version="15" max-version="23"/>
     </dependencies>
 </info>
