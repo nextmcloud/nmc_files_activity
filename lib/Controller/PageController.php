@@ -45,23 +45,7 @@ class PageController extends Controller {
 	* @NoAdminRequired
 	*/
 	public function deleteActivitiesCustom() {
-
-		$timelimit = time() ;
-		$conditions = [
-			'timestamp' => [$timelimit, '<'],
-		];
-
-		$sqlWhere = '';
-		$sqlParameters = $sqlWhereList = [];
-		foreach ($conditions as $column => $comparison) {
-			$sqlWhereList[] = " `$column` " . ((is_array($comparison) && isset($comparison[1])) ? $comparison[1] : '=') . ' ? ';
-			$sqlParameters[] = (is_array($comparison)) ? $comparison[0] : $comparison;
-		}
-
-		if (!empty($sqlWhereList)) {
-			$sqlWhere = ' WHERE ' . implode(' AND ', $sqlWhereList)." AND user='".$this->userId."'";
-		}
-
+		$sqlWhere = ' WHERE ' . " user='".$this->userId."'";
 
 		// Add galera safe delete chunking if using mysql
 		// Stops us hitting wsrep_max_ws_rows when large row counts are deleted
@@ -72,14 +56,14 @@ class PageController extends Controller {
 				'DELETE FROM `*PREFIX*activity`' . $sqlWhere . " LIMIT " . $max);
 
 			do {
-				$query->execute($sqlParameters);
+				$query->execute();
 				$deleted = $query->rowCount();
 			} while ($deleted === $max);
 		} else {
 			// Dont use chunked delete - let the DB handle the large row count natively
 			$query = $this->connection->prepare(
 				'DELETE FROM `*PREFIX*activity`' . $sqlWhere);
-			$query->execute($sqlParameters);
+			$query->execute();
 		}
 	}
 

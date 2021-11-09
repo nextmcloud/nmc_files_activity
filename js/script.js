@@ -6,7 +6,7 @@
 					url: OC.generateUrl('/apps/nmc_files_activity/deleteActivitiesCustom'),
 					type: 'DELETE',
 					success: function(response, status, xhr) {
-						// location.reload();
+						location.reload();
 					}
 				});
 			});
