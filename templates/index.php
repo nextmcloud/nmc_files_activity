@@ -34,14 +34,16 @@ script('activity', [
 ?>
 
 <div id="app-content">
-	<div class="file-activity-heading" class="hidden">
-		<?php p($l->t('Activities')) ?>
-	</div>
-	<div class="file-activity-note" class="hidden">
-		<?php p($l->t('Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities.')) ?>
-	</div>
-	<div class="del-files-activity-div" class="hidden">
-		<a class="del-files-activity"><button type="button" class="btn btn-default btn-style"><?php p($l->t('Delete all activities')) ?></button></a>
+	<div class="del-files-activity-container hidden">
+		<div class="file-activity-heading">
+			<?php p($l->t('Activities')) ?>
+		</div>
+		<div class="file-activity-note">
+			<?php p($l->t('Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities.')) ?>
+		</div>
+		<div class="del-files-activity-div">
+			<a class="del-files-activity"><button type="button" class="btn btn-default btn-style"><?php p($l->t('Delete all activities')) ?></button></a>
+		</div>
 	</div>
 
 	<div id="emptycontentCustom" class="hidden">

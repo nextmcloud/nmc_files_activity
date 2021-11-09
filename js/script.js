@@ -77,9 +77,7 @@ $(function(){
 			OCA.Activity.InfinitScrolling.$container.animate({ scrollTop: 0 }, 'slow');
 			OCA.Activity.InfinitScrolling.$container.children().remove();
 			$('#emptycontentCustom').addClass('hidden');
-			$('.file-activity-note').addClass('hidden');
-			$('.del-files-activity-div').addClass('hidden');
-			$delActbtnDiv = $(".del-files-activity-div");
+			$delActbtnDiv = $(".del-files-activity-container");
 			$delActbtnDiv.removeClass('hidden');
 			$('#no_more_activities').addClass('hidden');
 			$('#loading_activities').removeClass('hidden');
@@ -186,9 +184,7 @@ $(function(){
 				// First page is empty - No activities :(
 				var $emptyContent = $('#emptycontentCustom');
 				$emptyContent.removeClass('hidden');
-				$('.file-activity-note').removeClass('hidden');
-				$('.del-files-activity-div').removeClass('hidden');
-				$delActbtnDiv = $(".del-files-activity-div");
+				$delActbtnDiv = $(".del-files-activity-container");
 				$delActbtnDiv.addClass('hidden');
 				if (OCA.Activity.Filter.filter == 'all') {
 					$emptyContent.find('p').text(t('activity', 'This stream will show events like additions, changes & shares'));
