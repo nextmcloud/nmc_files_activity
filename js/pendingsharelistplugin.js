@@ -70,10 +70,11 @@
 		 	linkElem.append(nameSpan);
 			var templateAcceptShare = '<a class="action-button accept-pending-share accept share permanent action-accept" href="#"><span class="icon icon-checkmark"></span><span class="button-label">' + t('files_sharing', 'Accept') + '</span></a>';
 			var templateRejectShare = '<a class="action-button reject-pending-share reject share permanent action-reject" href="#"><span class="icon icon-close"></span><span class="button-label">' + t('files_sharing', 'Reject') + '</span></a>';
-			var templateShare = '<a class="action action-share permanent shared-style" href="#" data-action="Share" data-original-title="Shared by '+ share.displayname_file_owner +'"title="Shared by '+ share.displayname_file_owner +'"><span class="avatar" data-username="'+share.uid_owner+'" title="Shared by '+ share.displayname_file_owner +'" style="height: 32px; width: 32px;" data-original-title="Shared by '+ share.displayname_file_owner +'"><img title = '+ share.displayname_file_owner +' width="32" height="32" src="/index.php/avatar/test/32" alt=""></span><span class="receiveData">' + t('files_sharing', 'Received') + '</span>  </a>';
+			var templateShare = '<a class="action action-share permanent shared-style" href="#" data-action="Share" data-original-title="Shared by '+ share.displayname_file_owner +'" title="Shared by '+ share.displayname_file_owner +'"><span class="avatar" data-username="'+share.uid_owner+'" title="Shared by '+ share.displayname_file_owner +'" style="height: 32px; width: 32px;" data-original-title="Shared by '+ share.displayname_file_owner +'"><img title = '+ share.displayname_file_owner +' width="32" height="32" src="/index.php/avatar/test/32" alt=""></span><span class="receiveData">' + t('files_sharing', 'Received') + '</span>  </a>';
 			var templateActions = '<span class="fileactions">' + templateAcceptShare + templateRejectShare + templateShare+'</span>'
 
 		 	var $actions = $(templateActions);
+			$actions.find('.avatar').tooltip();
 
 		 	$actions.on('click', '.accept-pending-share', function(e) {
 			 // TODO: implement accepting
