@@ -62,6 +62,7 @@ script('activity', [
 </div>
 
 <?php
+	script('nmc_files_activity', 'pendingsharelistplugin');
 	script('nmc_files_activity', 'script');
 	style('activity', 'style');
 	style('nmc_files_activity', 'style');
