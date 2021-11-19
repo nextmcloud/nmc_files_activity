@@ -1,6 +1,7 @@
 (function() {
 	var FilesPlugin = {
 		attach: function(fileList) {
+			this.fileList = fileList;
 			// Only register this plugin on the initial file list
 			if (fileList.id !== 'files') {
 				return;
@@ -35,6 +36,7 @@
 		},
 
 		renderPendingShareRow: function(share) {
+			var self = this;
 			var $tr = $('<tr class="pending-share-row"></tr>');
 			$tr.attr({
 				"data-id" : share.file_source,
@@ -72,11 +74,13 @@
 			var templateActions = '<span class="fileactions">' + templateAcceptShare + templateRejectShare + templateShare+'</span>'
 
 		 	var $actions = $(templateActions);
+
 		 	$actions.on('click', '.accept-pending-share', function(e) {
 			 // TODO: implement accepting
 			 $.post(OC.linkToOCS('apps/files_sharing/api/v1/shares/pending', 2) + share.id)
 							.success(function(result) {
-								location.reload();
+								self.fileList.reload();
+								$('.pending-share-row[data-share-id="'+share.id+'"]').remove();
 							}).fail(function() {
 							OC.Notification.showTemporary(t('files_sharing', 'Something happened. Unable to accept the share.'))
 						})
@@ -88,7 +92,8 @@
 				url: OC.linkToOCS('apps/files_sharing/api/v1/' + shareBase, 2) + share.id,
 				type: 'DELETE'
 			  }).success(function (result) {
-				location.reload();
+					self.fileList.reload();
+					$('.pending-share-row[data-share-id="'+share.id+'"]').remove();
 			  }).fail(function () {
 				OC.Notification.showTemporary(t('files_sharing', 'Something happened. Unable to reject the share.'));
 			  });
