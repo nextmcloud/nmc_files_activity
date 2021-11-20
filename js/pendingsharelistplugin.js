@@ -25,9 +25,7 @@
 			pendingShareHeader.insertBefore(fileList.$el.find('tbody'))
 
 			$.ajax(pendingShares).then(function(data) {
-				var pendingShareList = data.ocs.data
-				console.log("====>", pendingShareList)
-
+				var pendingShareList = data.ocs.data;
 				pendingShareList.forEach(function(share) {
 					pendingShareHeader.append(self.renderPendingShareRow(share))
 				});
@@ -63,15 +61,18 @@
 			});
 
 			var nameSpan=$('<span></span>').addClass('nametext');
-			var innernameSpan = $('<span></span>').addClass('innernametext').text(share.path);
+			var fileName = share.path.split('.');
+			var innernameSpan = $('<span></span>').addClass('innernametext').text(fileName[0]);
+			var extensionSpan = $('<span></span>').addClass('extension').text('.'+fileName[1]);
 			nameSpan.append(innernameSpan);
+			nameSpan.append(extensionSpan);
 			icon = this._getIconUrl(share);
 			linkElem.append('<div class="thumbnail-wrapper"><div class="thumbnail" style="background-image: url(' + icon + ');"></div></div>');
 		 	linkElem.append(nameSpan);
-			var templateAcceptShare = '<a class="action-button accept-pending-share accept share permanent action-accept" href="#"><span class="icon icon-checkmark"></span><span class="button-label">' + t('files_sharing', 'Accept') + '</span></a>';
-			var templateRejectShare = '<a class="action-button reject-pending-share reject share permanent action-reject" href="#"><span class="icon icon-close"></span><span class="button-label">' + t('files_sharing', 'Reject') + '</span></a>';
+			var templateAcceptShare = '<a class="action-button accept-pending-share accept share permanent action-accept" href="#"><span class="icon icon-approve-share-blue"></span><span class="button-label">' + t('files_sharing', 'Accept') + '</span></a>';
+			var templateRejectShare = '<a class="action-button reject-pending-share reject share permanent action-reject" href="#"><span class="icon icon-reject-share-blue"></span><span class="button-label">' + t('files_sharing', 'Reject') + '</span></a>';
 			var templateShare = '<a class="action action-share permanent shared-style" href="#" data-action="Share" data-original-title="Shared by '+ share.displayname_file_owner +'" title="Shared by '+ share.displayname_file_owner +'"><span class="avatar" data-username="'+share.uid_owner+'" title="Shared by '+ share.displayname_file_owner +'" style="height: 32px; width: 32px;" data-original-title="Shared by '+ share.displayname_file_owner +'"><img title = '+ share.displayname_file_owner +' width="32" height="32" src="/index.php/avatar/test/32" alt=""></span><span class="receiveData">' + t('files_sharing', 'Received') + '</span>  </a>';
-			var templateActions = '<span class="fileactions">' + templateAcceptShare + templateRejectShare + templateShare+'</span>'
+			var templateActions = '<span class="fileactions">' + templateAcceptShare + templateRejectShare + templateShare+'</span>';
 
 		 	var $actions = $(templateActions);
 			$actions.find('.avatar').tooltip();
@@ -141,7 +142,6 @@
 				"style": 'color:rgb(' + sizeColor + ',' + sizeColor + ',' + sizeColor + ')'
 			}).text(simpleSize);
 		 	$tr.append(td);
-
 		 	var time = parseInt(share.stime + '000', 10);
 			var formatted;
 			var text;
