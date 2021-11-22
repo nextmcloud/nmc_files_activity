@@ -65,7 +65,9 @@
 			var innernameSpan = $('<span></span>').addClass('innernametext').text(fileName[0]);
 			var extensionSpan = $('<span></span>').addClass('extension').text('.'+fileName[1]);
 			nameSpan.append(innernameSpan);
-			nameSpan.append(extensionSpan);
+			if(share.mimetype!="httpd/unix-directory"){
+				nameSpan.append(extensionSpan);
+			}
 			icon = this._getIconUrl(share);
 			linkElem.append('<div class="thumbnail-wrapper"><div class="thumbnail" style="background-image: url(' + icon + ');"></div></div>');
 		 	linkElem.append(nameSpan);
@@ -168,10 +170,25 @@
 		_getIconUrl: function(fileInfo) {
 			var mimeType = fileInfo.mimetype || 'application/octet-stream';
 			if (mimeType === 'httpd/unix-directory') {
+				// use default folder icon
+				if (fileInfo.mountType === 'shared' || fileInfo.mountType === 'shared-root') {
 					return OC.MimeType.getIconUrl('dir-shared');
+				} else if (fileInfo.mountType === 'external-root') {
+					return OC.MimeType.getIconUrl('dir-external');
+				} else if (fileInfo.mountType !== undefined && fileInfo.mountType !== '') {
+					return OC.MimeType.getIconUrl('dir-' + fileInfo.mountType);
+				} else if (fileInfo.shareTypes && (
+					fileInfo.shareTypes.indexOf(OC.Share.SHARE_TYPE_LINK) > -1
+					|| fileInfo.shareTypes.indexOf(OC.Share.SHARE_TYPE_EMAIL) > -1)
+				) {
+					return OC.MimeType.getIconUrl('dir-public')
+				} else if (fileInfo.shareTypes && fileInfo.shareTypes.length > 0) {
+					return OC.MimeType.getIconUrl('dir-shared')
+				}
+				return OC.MimeType.getIconUrl('dir');
 			}
 			return OC.MimeType.getIconUrl(mimeType);
-		}
+		},
 
 	};
 
