@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "activity",
+    "nmc_files_activity",
     {
     "Copied!" : "Copied!",
     "Not supported!" : "Not supported!",
