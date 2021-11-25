@@ -34,7 +34,7 @@ script('activity', [
 ?>
 
 <div id="app-content">
-	<div class="control-section"></div>
+	<div class="controls-section"></div>
 	<div class="del-files-activity-container hidden">
 		<div class="file-activity-heading">
 			<?php p($l->t('Activities')) ?>
