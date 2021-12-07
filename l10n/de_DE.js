@@ -61,7 +61,7 @@ OC.L10N.register(
     "Open file" : "Datei öffnen",
     "This application enables users to view actions related to their files in Nextcloud." : "Diese Anwendung erlaubt es dem Benutzer, Aktivitäten zu dessen Dateien in Nextcloud zu verfolgen.",
 	"Activities" : "Aktivitäten",
-	"Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities."	: "Benachrichtigungen sind nur für Sie sichtbar und werden als Ihre Daten nur sicher verschlüsselt in Ihrer MagentaCloud gespeichert. Sie können weiterhin alle Ihre Aktivitäten löschen.",
+	"Notifications are only visible to you and are stored just as securely encrypted in your MagentaCLOUD as your data. You can still delete your activities. Please note that activities regarding shared content cannot be deleted, as they belong to the sharer." : "Benachrichtigungen sind nur für Sie einsehbar und genauso sicher verschlüsselt in Ihrer MagentaCLOUD gespeichert, wie Ihre Daten. Sie können trotzdem Ihre Aktivitäten löschen. Beachten Sie, dass Aktivitäten bezüglich geteilter Inhalte nicht gelöscht werden können, da diese zu dem Teilenden gehören.",
 	"Delete all activities" : "Alle Aktivitäten löschen"
 },
 "nplurals=2; plural=(n != 1);");

@@ -40,7 +40,7 @@ script('activity', [
 			<?php p($l->t('Activities')) ?>
 		</div>
 		<div class="file-activity-note">
-			<?php p($l->t('Notifications are only visible to you and are stored just securely encrypted in your MagentaCloud as your data. You can still delete all your activities.')) ?>
+			<?php p($l->t('Notifications are only visible to you and are stored just as securely encrypted in your MagentaCLOUD as your data. You can still delete your activities. Please note that activities regarding shared content cannot be deleted, as they belong to the sharer.')) ?>
 		</div>
 		<div class="del-files-activity-div">
 			<a class="del-files-activity"><button type="button" class="btn btn-default btn-style"><?php p($l->t('Delete all activities')) ?></button></a>
