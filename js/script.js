@@ -2,13 +2,23 @@
 	var nmcFilesActvityAction = (function () {
 		var delActvities = function() {
 			$('.del-files-activity').click(function(){
+				$(".del-files-activity button").attr("disabled", true);
 				$.ajax({
 					url: OC.generateUrl('/apps/nmc_files_activity/deleteActivitiesCustom'),
 					type: 'DELETE',
 					success: function(response, status, xhr) {
-						location.reload();
-					}
+						$(".del-files-activity button").attr("disabled", false);
+						var filter = 'all';
+						OC.Util.History.pushState({
+							filter: filter
+						});
+						OCA.Activity.Filter.setFilter(filter);
+					},
+					error: function (jqXHR, exception) {
+						$(".del-files-activity button").attr("disabled", false);
+					},
 				});
+
 			});
 		};
 
@@ -20,7 +30,7 @@
 		}
 	  })();
 
-	  nmcFilesActvityAction.delActvities();
+	 nmcFilesActvityAction.delActvities();
   });
 
 
