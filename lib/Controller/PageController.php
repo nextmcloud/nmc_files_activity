@@ -74,7 +74,6 @@ class PageController extends Controller {
 		if (!$this->lockingCache->hasKey($this->userId)) {
 			$this->lockingCache->set($this->userId, 'locked', 10);
 			$this->logger->debug('***********Lock applied for 10 seconds***************', ['app' => 'nmc_files_activity']);
-			sleep(1);
 			$sqlWhere = ' WHERE ' . " user='".$this->userId."'";
 
 			// Add galera safe delete chunking if using mysql
