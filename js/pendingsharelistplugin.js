@@ -1,5 +1,5 @@
 (function() {
-	var FilesPlugin = {
+	OCA.Files.FilesPlugin = {
 		attach: function(fileList) {
 			this.fileList = fileList;
 			// Only register this plugin on the initial file list
@@ -24,10 +24,13 @@
 			var pendingShareHeader = $('<tbody id="fileList" class="pendingSharesList"></tbody>');
 			pendingShareHeader.insertBefore(fileList.$el.find('tbody'))
 
-			$.ajax(pendingShares).then(function(data) {
-				var pendingShareList = data.ocs.data;
-				pendingShareList.forEach(function(share) {
-					pendingShareHeader.append(self.renderPendingShareRow(share))
+			fileList.$el.on('updated', function() {
+				$.ajax(pendingShares).then(function(data) {
+					$('.pending-share-row').remove();
+					var pendingShareList = data.ocs.data;
+					pendingShareList.forEach(function(share) {
+						pendingShareHeader.append(self.renderPendingShareRow(share))
+					});
 				});
 			});
 
@@ -192,6 +195,6 @@
 
 	};
 
-	OC.Plugins.register('OCA.Files.FileList', FilesPlugin)
+	OC.Plugins.register('OCA.Files.FileList', OCA.Files.FilesPlugin)
 
 })();
