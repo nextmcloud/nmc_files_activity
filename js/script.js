@@ -53,7 +53,7 @@ function escapeHTML(text) {
 		.split('\'').join('&#039;')
 }
 
-$(function(){
+(function(OCA){
 	OCA.Activity = OCA.Activity || {};
 
 	OCA.Activity.Filter = {
@@ -349,15 +349,22 @@ $(function(){
 
 	//OCA.Activity.Formatter.setAvatarStatus(OCA.Activity.InfinitScrolling.$container.data('avatars-enabled') === 'yes');
 	OC.Util.History.addOnPopStateHandler(_.bind(OCA.Activity.Filter._onPopState, OCA.Activity.Filter));
-	OCA.Activity.Filter.setFilter(OCA.Activity.InfinitScrolling.$container.attr('data-activity-filter'));
-	OCA.Activity.InfinitScrolling.$content.on('scroll', _.bind(OCA.Activity.InfinitScrolling.onScroll, OCA.Activity.InfinitScrolling));
 
-	OCA.Activity.Filter.$navigation.find('.nav-nmc_files_activity').on('click', function (event) {
-		var filter = 'all';
-		OC.Util.History.pushState({
-			filter: filter
-		});
-		OCA.Activity.Filter.setFilter(filter);
-		event.preventDefault();
-	});
-});
+	OCA.Files = OCA.Files || {}
+
+	OCA.Files.FileActivityPlugin = {
+		name: 'nmc_files_activity',
+		attach: function() {
+			console.debug('Attached')
+			$('#app-content-nmc_files_activity').on('show.plugin-favorites', function(e) {
+				OCA.Activity.Filter.setFilter(OCA.Activity.InfinitScrolling.$container.attr('data-activity-filter'));
+				OCA.Activity.InfinitScrolling.$content.on('scroll', _.bind(OCA.Activity.InfinitScrolling.onScroll, OCA.Activity.InfinitScrolling));
+			})
+		},
+
+		detach: function() {
+		},
+	}
+})(OCA);
+
+OC.Plugins.register('OCA.Files.App', OCA.Files.FileActivityPlugin)
